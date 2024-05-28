@@ -12,14 +12,6 @@ import bookingRoute from "./routes/booking.js";
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
-// const corsOptions = {
-//     origin: "https://mysimple-tour-travel.netlify.app",
-//     credentials: true, //access-control-allow-credentials:true
-//     optionSuccessStatus: 200,
-// };
-
-//database connection
-// mongoose.set("strictQuery",false);
 const connect = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI, {
@@ -34,7 +26,6 @@ const connect = async () => {
 
 //middleware
 app.use(express.json());
-// app.use(cors());
 app.use(cors({
     origin: 'http://localhost:3000', // Replace with your frontend URL
     credentials: true // Allow credentials (cookies) to be sent with requests
